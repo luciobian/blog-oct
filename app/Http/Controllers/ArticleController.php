@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 /**
  * ArticleController
@@ -19,7 +20,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::orderBy('updated_at')->get();;
+
+        return view('articles.article', ['articles'=>$articles]);
     }
 
     /**

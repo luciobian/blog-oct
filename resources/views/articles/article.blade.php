@@ -20,6 +20,15 @@
             </div>
     
 
-</div >  
-@endforeach
+        </div >  
+        @endforeach
+        {{-- <div class="container mt-3 " style="margin: auto auto"> --}}
+            
+            <div class="row mt-5">
+                <div class=" mx-auto">
+                    {{ $articles->links() }}
+                </div>
+            </div>
+        {{-- </div> --}}
+
 @endsection

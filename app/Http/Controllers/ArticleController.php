@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderBy('updated_at')->get();;
+        $articles = Article::orderBy('updated_at')->simplePaginate(2);;
 
         return view('articles.article', ['articles'=>$articles]);
     }

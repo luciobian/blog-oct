@@ -19,7 +19,8 @@ class Articles extends Migration
             $table->bigIncrements('id');     
             $table->string('title');
             $table->text('body');
-            $table->string('image_path');   
+            $table->foreign('image_id')->references('id')->on('images');;
+            $table->foreign('user_id')->references('id')->on('users');   
             $table->timestamps();      
         });
     }

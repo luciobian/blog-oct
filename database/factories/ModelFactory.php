@@ -3,6 +3,8 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
 use App\Article;
+use App\Image;
+use App\Role;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -22,17 +24,28 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password´
+        'role_id'=> rand(1,2),
         'remember_token' => Str::random(10),
     ];
 });
+$factory->define(Role::class, function(Faker $faker){
+    $description = ['user', 'admin'];
 
+    return ["description"=> array_random($description)];
+});
+$factory->define(Image::class, function (Faker $faker){
+    return [
+        "path"=>$faker->url,
+        "alternative"=>$faker->sentence($nbWords = 4, $variableNbWords = true),
+    ];
+});
 
 $factory->define(Article::class, function (Faker $faker) {
     return [
         'title' => $faker->catchPhrase,
         'body' => $faker->realText(rand(2500,7500)),
-        'image_id' => 1,
-        'user_id' => factory("App\User")->create()->user_id
+        'image_id' => factory("App\Image")->create()->id,        
+        'user_id' => factory("App\User")->create()->id
     ];
 });

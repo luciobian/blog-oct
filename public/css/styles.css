@@ -1,5 +1,5 @@
-.main-imagebg {
+.main-image {
+    width: 10rem;
     padding:20px;
-    background: rgb(187,185,185);
-    background: linear-gradient(59deg, rgba(187,185,185,1) 0%, rgba(117,117,117,0.835171568627451) 47%, rgba(179,179,179,1) 100%);
 }
+

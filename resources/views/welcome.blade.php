@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        {{ URL::asset('css/css.css'); }}    
         <title>Laravel</title>
 
         <!-- Fonts -->

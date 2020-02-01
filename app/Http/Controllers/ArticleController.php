@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 /**
  * ArticleController
  * 
@@ -42,8 +44,21 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {    
+        $request->validate([
+            'title' => 'required|unique:posts|max:255',
+            'image' => 'required',
+            'body' => 'required',
+        ]);
+
+        Article::create([
+            "title" => $request->get('title'),
+            "body" => $request->get('body'),
+            "image_id" => 1,
+            "user_id"=> Auth::user()->id,
+        ]);
+
+        return redirect("articles.create");
     }
 
     /**

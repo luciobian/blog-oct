@@ -12,7 +12,7 @@
                 <a href="{{ url('/articles/'.$article->id) }}">
                     <h3 class="card-title">{{$article->title}}</h3>
                 </a>
-                <p class="card-text">{{ str_limit($article->body, $limit = 150, $end = '...') }}</p>
+                <p class="card-text">{{ str_limit($article->body, $limit = 350, $end = '...') }}</p>
             </div>
             <div class="card-footer">
                 <p class="card-text text-right"><small class="text-muted">&#8987;

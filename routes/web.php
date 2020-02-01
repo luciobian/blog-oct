@@ -17,4 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'ArticleController@index')->name('home');
 
+
 Route::get('/articles/{article}', 'ArticleController@show');
+Route::get("/create", function (){
+    return view('articles.create');
+});

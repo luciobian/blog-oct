@@ -22,3 +22,5 @@ Route::get('/articles/{article}', 'ArticleController@show');
 Route::get("/create", function (){
     return view('articles.create');
 });
+
+Route::post('/article', "ArticleController@store");

@@ -19,9 +19,7 @@ Route::get('/home', 'ArticleController@index')->name('home');
 
 
 Route::group(['middleware'=>'auth'], function(){
-    Route::get("/create", function (){
-        return view('articles.create');
-    });
+    Route::get("/create", "ArticleController@create");
 });
 
 

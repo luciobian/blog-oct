@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@include('articles.order')
+
 @foreach ($articles as $article)
 
 <div class="mt-5 d-block">

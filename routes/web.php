@@ -18,9 +18,13 @@ Auth::routes();
 Route::get('/home', 'ArticleController@index')->name('home');
 
 
-Route::get('/articles/{article}', 'ArticleController@show');
-Route::get("/create", function (){
-    return view('articles.create');
+Route::group(['middleware'=>'auth'], function(){
+    Route::get("/create", function (){
+        return view('articles.create');
+    });
 });
+
+
+Route::get('/articles/{article}', 'ArticleController@show');
 
 Route::post('/article', "ArticleController@store");

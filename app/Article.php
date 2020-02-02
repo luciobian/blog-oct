@@ -9,7 +9,7 @@ class Article extends Model
     protected $guarded = [];
 
     
-    public function getKeyName()
+    public function getRouteKey()
     {
         return 'id';    
     }

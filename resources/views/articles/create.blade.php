@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="mx-3">
-        <input type="file" name="img" id="img" class="form-control-file" onchange="readURL(this);">
+        <input type="file" name="image" id="image" accept="image/*" class="form-control-file" onchange="readURL(this);">
         <span class="d-flex justify-content-center">
             <img style="max-width: 180px;" id="ImdID" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D"
                 class="mt-3 mb-3 " alt="Imagen previa">

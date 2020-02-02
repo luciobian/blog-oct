@@ -12,7 +12,7 @@
 </ul>
 @endif
 
-<form method="POST" action="/article">
+<form method="POST" action="/article" enctype="multipart/form-data">
     {{csrf_field()}}
     <div class="form-group mx-3">
         <div class="form-group">

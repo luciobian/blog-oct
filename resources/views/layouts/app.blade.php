@@ -26,7 +26,7 @@
     <div id="app">
         @include('layouts.nav')
 
-        <main class="container mt-5">
+        <main class="container mt-3">
             @yield('content')
         </main>
     </div>

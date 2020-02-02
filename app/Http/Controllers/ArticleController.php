@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,19 +47,29 @@ class ArticleController extends Controller
     public function store(Request $request)
     {    
         $request->validate([
-            'title' => 'required|unique:posts|max:255',
+            'title' => 'required|unique:articles|max:255',
             'image' => 'required',
             'body' => 'required',
         ]);
 
-        Article::create([
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+
+        $image  = Image::create([
+            "path"=>time().'.'.request()->image->getClientOriginalExtension(),
+            "alternative"=>$request->get('title'),
+        ]);
+
+        request()->image->move(public_path('images'), $imageName);
+
+        $article = Article::create([
             "title" => $request->get('title'),
             "body" => $request->get('body'),
-            "image_id" => 1,
+            "image_id" => $image->id,
             "user_id"=> Auth::user()->id,
         ]);
 
-        return redirect("articles.create");
+
+        return redirect("/articles/{$article->id}");
     }
 
     /**

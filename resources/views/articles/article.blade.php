@@ -24,8 +24,17 @@
             <p class="card-text">{{ str_limit($article->body, $limit = 350, $end = '...') }}</p>
         </div>
         <div class="card-footer">
-            <p class="card-text text-right"><small class="text-muted">&#8987;
-                    {{$article->updated_at->diffForHumans()}}</small></p>
+            <span class="d-flex justify-content-between align-items-center">
+                @can('delete', $article)
+                <form action="{{ route("delete", ['article'=>$article->id]) }}" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button type="submit" class="btn btn-link">Eliminar</button>
+                </form>
+                @endcan
+                <p class="card-text text-right"><small class="text-muted">&#8987;
+                        {{$article->updated_at->diffForHumans()}}</small></p>
+            </span>
         </div>
 
 

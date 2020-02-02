@@ -1,6 +1,5 @@
-.main-image {
-    width: 10rem;
-    padding:20px;
+.img-fluid {
+    height: 250px!important;
 }
 
 .l-ns{

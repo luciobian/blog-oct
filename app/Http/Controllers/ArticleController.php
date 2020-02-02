@@ -52,14 +52,8 @@ class ArticleController extends Controller
             'body' => 'required',
         ]);
 
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-
-        $image  = Image::create([
-            "path"=>time().'.'.request()->image->getClientOriginalExtension(),
-            "alternative"=>$request->get('title'),
-        ]);
-
-        request()->image->move(public_path('images'), $imageName);
+        // Store de a imagen en el controlador ImageController
+        $image = app("App\Http\Controllers\ImageController")->store($request);
 
         $article = Article::create([
             "title" => $request->get('title'),

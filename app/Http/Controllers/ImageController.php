@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use Illuminate\Http\Request;
 
 class ImageController extends Controller
@@ -34,7 +35,16 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+
+        $image = Image::create([
+            "path"=>time().'.'.request()->image->getClientOriginalExtension(),
+            "alternative"=>$request->get('title'),
+        ]);
+
+        request()->image->move(public_path('images'), $imageName);
+
+        return $image;
     }
 
     /**

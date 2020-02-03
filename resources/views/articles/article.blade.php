@@ -3,6 +3,8 @@
 @section('content')
 @include('articles.order')
 
+@if ($articles->count()>0)
+
 @foreach ($articles as $article)
 
 <div class="mt-5 d-block">
@@ -46,4 +48,9 @@
             {{ $articles->links() }}
         </div>
     </div>
-    @endsection
+    {{public_path()."/img/not-found.svgasdas"}}
+@else
+    @include('articles.not-found')
+@endif
+
+@endsection

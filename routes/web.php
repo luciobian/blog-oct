@@ -20,6 +20,8 @@ Route::get('/home', 'ArticleController@index')->name('home');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get("/create", "ArticleController@create");
+    Route::get("/edit/{article}", "ArticleController@edit");
+    Route::put("/articles/{article}", "ArticleController@update");
     Route::delete("/articles/{article}", "ArticleController@destroy")->name('delete');
 });
 

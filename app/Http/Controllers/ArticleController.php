@@ -88,9 +88,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        //
+        return view("articles.edit", ['article'=>$article]);
     }
 
     /**
@@ -100,9 +100,23 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        //
+        $article->title = $request->get('title');
+        $article->body = $request->get('body');
+
+        $this->authorize("update", $article);
+        if($article->isDirty() || $article->images){
+            $article->update([
+                "title"=>$request->get('title'),
+                "body"=>$request->get('body')
+            ]);
+                app("App\Http\Controllers\ImageController")->update($request, $article);
+        }else{
+            return "no se modifico";
+        }
+
+        return redirect("/articles/{$article->id}");
     }
 
     /**

@@ -13,7 +13,7 @@
 
 Route::get('/', "ArticleController@index");
 
-Auth::routes();
+Auth::routes(['reset' => false]);
 
 Route::get('/home', 'ArticleController@index')->name('home');
 

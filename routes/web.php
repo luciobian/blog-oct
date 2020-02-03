@@ -25,6 +25,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::delete("/articles/{article}", "ArticleController@destroy")->name('delete');
 });
 
+Route::post("/search", "ArticleController@search");
+
 
 Route::get('/articles/{article}', 'ArticleController@show');
 

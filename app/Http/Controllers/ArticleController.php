@@ -18,7 +18,7 @@ class ArticleController extends Controller
     
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show', 'search']);
     }
     
     /**
@@ -133,5 +133,14 @@ class ArticleController extends Controller
         $article->delete();
 
         return redirect('home');
+    }
+
+    public function search(Request $request){
+        $articles = Article::where('title', 'LIKE', "%$request->search%")
+                        ->orWhere('body', 'LIKE', "%$request->search%")
+                        ->orderBy('updated_at', 'desc')
+                        ->simplePaginate(15);
+
+        return view ("articles.article", ["articles"=>$articles]);
     }
 }

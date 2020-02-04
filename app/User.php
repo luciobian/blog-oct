@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get all of the likes for the articles.
+     */
+    public function likes()
+    {
+        return $this->hasMany('App\Like', 'users_id');
+    }
 }

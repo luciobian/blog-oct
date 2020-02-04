@@ -29,4 +29,13 @@ class Article extends Model
     {
         return 'id';    
     }
+
+
+    /**
+     * Get all of the likes for the articles.
+     */
+    public function likes()
+    {
+        return $this->hasMany('App\Like', 'articles_id');
+    }
 }

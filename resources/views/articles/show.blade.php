@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('content')
-
-<a class="nav-link" 
-    href="{{url("/edit", ['article'=>$article->id])}}">
-        Editar artículo
-</a>
+@can('update', $article)
+    <a class="nav-link" 
+        href="{{url("/edit", ['article'=>$article->id])}}">
+            Editar artículo
+    </a>
+@endcan
 
 <div class="mt-3 d-flex justify-content-between align-items-center">    
     <span>

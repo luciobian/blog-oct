@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
 use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -142,5 +143,20 @@ class ArticleController extends Controller
                         ->simplePaginate(15);
 
         return view ("articles.article", ["articles"=>$articles]);
+    }
+
+    public function postLike(Article $article){
+        
+        $like = Like::where([['articles_id',$article->id],['users_id',Auth::user()->id]])->first();
+
+        if(!$like){
+            Like::create([
+                'articles_id'=>$article->id,
+                'users_id'=>Auth::user()->id,
+            ]);
+        }else{
+            $like->delete();
+        }
+        return redirect("/articles/{$article->id}");
     }
 }

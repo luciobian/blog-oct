@@ -21,8 +21,8 @@ class Articles extends Migration
             $table->text('body');
             $table->unsignedBigInteger('image_id');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('image_id')->references('id')->on('images');
-            $table->foreign('user_id')->references('id')->on('users');   
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');   
             $table->timestamps();      
         });
     }

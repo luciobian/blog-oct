@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    
+
     /**
      * Get all of the articles that are liked.
      */
@@ -17,7 +17,7 @@ class Like extends Model
 
     
     /**
-     * Get all of the articles that are liked.
+     * Get all of the users that liked a article.
      */
     public function users()
     {

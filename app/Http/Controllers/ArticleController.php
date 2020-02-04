@@ -145,7 +145,12 @@ class ArticleController extends Controller
 
         return view ("articles.article", ["articles"=>$articles]);
     }
-
+    /**
+     * Da like a un articulo
+     *
+     * @param Article $article
+     * @return void
+     */
     public function postLike(Article $article){
         
         $like = Like::where([['articles_id',$article->id],['users_id',Auth::user()->id]])->first();

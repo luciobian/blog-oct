@@ -13,7 +13,11 @@
     </span>
     <span>
         @if (Auth::check())
-            <button type="submit" class="btn btn-danger">Me gusta</button>
+        <form action={{"/articles/$article->id/likes"}} method="POST">
+            @csrf
+            {{"articles/$article->id/likes"}} 
+            <button type="submit" class="btn btn-danger">{{$article->likes_count}}</button>
+        </form>
         @endif
     </span>
 </div>

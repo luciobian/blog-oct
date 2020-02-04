@@ -8,8 +8,24 @@ class Article extends Model
 {
     protected $guarded = [];
 
-
     protected $with = ['images'];
+
+    protected $appends  = ['likes_count'];
+
+
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('likeCount', function($builder){
+            $builder->withCount('likes');
+        });
+    } 
 
     /**
      * Relación con modelo Image

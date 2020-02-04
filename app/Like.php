@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
 
+    protected $guarded=[];
+
     /**
      * Get all of the articles that are liked.
      */

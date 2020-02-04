@@ -23,6 +23,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get("/edit/{article}", "ArticleController@edit");
     Route::put("/articles/{article}", "ArticleController@update");
     Route::delete("/articles/{article}", "ArticleController@destroy")->name('delete');
+    Route::post("/articles/{article}/likes", "ArticleController@postLike");
 });
 
 Route::post("/search", "ArticleController@search");

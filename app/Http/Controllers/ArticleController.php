@@ -62,9 +62,9 @@ class ArticleController extends Controller
     public function store(Request $request)
     {    
         $request->validate([
-            'title' => 'required|unique:articles|max:255',
+            'title' => 'required|min:5|unique:articles|max:255',
             'image' => 'required',
-            'body' => 'required',
+            'body' => 'required|min:10',
         ]);
 
         // Store de a imagen en el controlador ImageController
@@ -128,6 +128,10 @@ class ArticleController extends Controller
 
         
         if($article->isDirty() || $request->images){
+            $request->validate([
+                'title' => 'min:5|unique:articles|max:255',
+                'body' => 'min:10',
+            ]);
             $article->update([
                 "title"=>$request->get('title'),
                 "body"=>$request->get('body')
@@ -137,7 +141,9 @@ class ArticleController extends Controller
             return redirect("/articles/{$article->id}");
         }
 
-        return view("articles.edit", ["article"=>$article, "errors"=>true]);
+        $article['clean']=true;
+
+        return view("articles.edit", ["article"=>$article]);
 
     }
 

@@ -36,7 +36,7 @@ $factory->define(Role::class, function(Faker $faker){
 });
 $factory->define(Image::class, function (Faker $faker){
     return [
-        "path"=>$faker->url,
+        "path"=>"",
         "alternative"=>$faker->sentence($nbWords = 4, $variableNbWords = true),
     ];
 });

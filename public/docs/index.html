@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="docs/css/style.css" />
+    <script src="docs/js/all.js"></script>
+
+
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="docs/images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://localhost/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Auth</h1>
+<p>Login Controller</p>
+<p>This controller handles authenticating users for the application and redirecting them to your home screen. The controller uses a trait to conveniently provide its functionality to your applications.</p>
+<!-- START_66e08d3cc8222573018fed49e121e96d -->
+<h2>Show the application&#039;s login form.</h2>
+<blockquote>
+<p>Example request:</p>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET login</code></p>
+<!-- END_66e08d3cc8222573018fed49e121e96d -->
+<!-- START_ba35aa39474cb98cfb31829e70eb8b74 -->
+<h2>Handle a login request to the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>POST login</code></p>
+<!-- END_ba35aa39474cb98cfb31829e70eb8b74 -->
+<!-- START_e65925f23b9bc6b93d9356895f29f80c -->
+<h2>Log the user out of the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>POST logout</code></p>
+<!-- END_e65925f23b9bc6b93d9356895f29f80c -->
+<!-- START_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
+<h2>Show the application registration form.</h2>
+<blockquote>
+<p>Example request:</p>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET register</code></p>
+<!-- END_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
+<!-- START_d7aad7b5ac127700500280d511a3db01 -->
+<h2>Handle a registration request for the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>POST register</code></p>
+<!-- END_d7aad7b5ac127700500280d511a3db01 -->
+<h1>Creación</h1>
+<!-- START_e427062cd1a117c871e8123b502ae80f -->
+<h2>Formulario de creación.</h2>
+<p>Show the form for creating a new article.</p>
+<blockquote>
+<p>Example request:</p>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET create</code></p>
+<!-- END_e427062cd1a117c871e8123b502ae80f -->
+<!-- START_19290c090b87bf5f682da8225c993a2b -->
+<h2>Guardar artículos.</h2>
+<p>Store a newly created articles in storage.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>POST article</code></p>
+<!-- END_19290c090b87bf5f682da8225c993a2b -->
+<h1>Edición</h1>
+<!-- START_20beb0671627a25967521e1665605445 -->
+<h2>Formulario de edición.</h2>
+<p>Show the form for editing the specified article.</p>
+<blockquote>
+<p>Example request:</p>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET edit/{article}</code></p>
+<!-- END_20beb0671627a25967521e1665605445 -->
+<!-- START_9bbde8f3a0410224d83088d6ddc613f2 -->
+<h2>Actulización de artículo.</h2>
+<p>Update the specified article in storage.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>PUT articles/{article}</code></p>
+<!-- END_9bbde8f3a0410224d83088d6ddc613f2 -->
+<h1>Eliminación</h1>
+<!-- START_aa3785d77e84c9c6db7a0248ecba30ae -->
+<h2>Eliminación artículo.</h2>
+<p>Remove the specified resource from storage.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>DELETE articles/{article}</code></p>
+<!-- END_aa3785d77e84c9c6db7a0248ecba30ae -->
+<h1>General</h1>
+<!-- START_7f51dddc361c8072bf2dca9e1312f757 -->
+<h2>Like.</h2>
+<p>Permite poner &quot;like&quot; al artículo especificado.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>POST articles/{article}/likes</code></p>
+<!-- END_7f51dddc361c8072bf2dca9e1312f757 -->
+<!-- START_a824fc42f761eee232ba6010c8f7641d -->
+<h2>Búsqueda.</h2>
+<p>Filtro de artículos en base a la palabra especifica.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<h3>HTTP Request</h3>
+<p><code>POST search</code></p>
+<!-- END_a824fc42f761eee232ba6010c8f7641d -->
+<h1>Ver</h1>
+<!-- START_53be1e9e10a08458929a2e0ea70ddb86 -->
+<h2>Mostrar artículos.</h2>
+<p>Display a listing of the articles.</p>
+<blockquote>
+<p>Example request:</p>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET /</code></p>
+<!-- END_53be1e9e10a08458929a2e0ea70ddb86 -->
+<!-- START_cb859c8e84c35d7133b6a6c8eac253f8 -->
+<h2>Mostrar artículos.</h2>
+<p>Display a listing of the articles.</p>
+<blockquote>
+<p>Example request:</p>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET home</code></p>
+<!-- END_cb859c8e84c35d7133b6a6c8eac253f8 -->
+<!-- START_869c8af2ead7fd5dae5a2e78d7d31f44 -->
+<h2>Mostrar artículo.</h2>
+<p>Display the specified resource.</p>
+<blockquote>
+<p>Example request:</p>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET articles/{article}</code></p>
+<!-- END_869c8af2ead7fd5dae5a2e78d7d31f44 -->
+      </div>
+      <div class="dark-box">
+                </div>
+    </div>
+  </body>
+</html>

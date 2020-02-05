@@ -48,7 +48,6 @@
             {{ $articles->links() }}
         </div>
     </div>
-    {{public_path()."/img/not-found.svgasdas"}}
 @else
     @include('articles.not-found')
 @endif

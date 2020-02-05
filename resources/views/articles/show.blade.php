@@ -2,7 +2,8 @@
 @section('content')
 @can('update', $article)
     <a class="nav-link" 
-        href="{{url("/edit", ['article'=>$article->id])}}">
+        href="{{url("/edit", ['article'=>$article->id])}}"
+        style="padding-left:0">
             Editar artículo
     </a>
 @endcan
@@ -15,7 +16,6 @@
         @if (Auth::check())
         <form action={{"/articles/$article->id/likes"}} method="POST">
             @csrf
-            {{"articles/$article->id/likes"}} 
             <button type="submit" class="btn btn-danger">{{$article->likes_count}}</button>
         </form>
         @endif

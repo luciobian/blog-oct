@@ -3,11 +3,7 @@
     
 @if (count($errors))
 <ul class="alert alert-danger l-ns">
-    @foreach ($errors->all() as $error)
-    <li >
-        {{$error}}
-    </li>
-    @endforeach
+    No se realizaron modificaciones.
 </ul>
 @endif
 

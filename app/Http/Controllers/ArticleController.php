@@ -122,21 +122,23 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
+        $this->authorize("update", $article);
         $article->title = $request->get('title');
         $article->body = $request->get('body');
 
-        $this->authorize("update", $article);
-        if($article->isDirty() || $article->images){
+        
+        if($article->isDirty() || $request->images){
             $article->update([
                 "title"=>$request->get('title'),
                 "body"=>$request->get('body')
             ]);
-                app("App\Http\Controllers\ImageController")->update($request, $article);
-        }else{
-            return "no se modifico";
+            app("App\Http\Controllers\ImageController")->update($request, $article);
+
+            return redirect("/articles/{$article->id}");
         }
 
-        return redirect("/articles/{$article->id}");
+        return view("articles.edit", ["article"=>$article, "errors"=>true]);
+
     }
 
     /**

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * ArticleController
+ * @group ArticleController
  * 
  * 
  * @author Lucio <lucio@lucio.com>
@@ -23,7 +23,10 @@ class ArticleController extends Controller
     }
     
     /**
-     * Display a listing of the resource.
+     * @group Ver
+     * Mostrar artículos.
+     * 
+     * Display a listing of the articles.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +38,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * @group Creación
+     * Formulario de creación.
+     * 
+     * Show the form for creating a new article.
      *
      * @return \Illuminate\Http\Response
      */
@@ -45,7 +51,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * @group Creación
+     * Guardar artículos.
+     * 
+     * Store a newly created articles in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -73,6 +82,9 @@ class ArticleController extends Controller
     }
 
     /**
+     * @group Ver
+     * Mostrar artículo.
+     * 
      * Display the specified resource.
      *
      * @param  int  $id
@@ -84,7 +96,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * @group Edición
+     * Formulario de edición.
+     * 
+     * Show the form for editing the specified article.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -96,7 +111,10 @@ class ArticleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * @group Edición
+     * Actulización de artículo.
+     * 
+     * Update the specified article in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -122,6 +140,9 @@ class ArticleController extends Controller
     }
 
     /**
+     * @group Eliminación
+     * Eliminación artículo.
+     * 
      * Remove the specified resource from storage.
      *
      * @param  Article
@@ -137,6 +158,15 @@ class ArticleController extends Controller
         return redirect('home');
     }
 
+    /**
+     * @group General
+     * Búsqueda.
+     * 
+     * Filtro de artículos en base a la palabra especifica.
+     *
+     * @param Request $request
+     * @return void
+     */
     public function search(Request $request){
         $articles = Article::where('title', 'LIKE', "%$request->search%")
                         ->orWhere('body', 'LIKE', "%$request->search%")
@@ -146,8 +176,11 @@ class ArticleController extends Controller
         return view ("articles.article", ["articles"=>$articles]);
     }
     /**
-     * Da like a un articulo
-     *
+     * @group General
+     * Like.
+     * 
+     * Permite poner "like" al artículo especificado.
+     * 
      * @param Article $article
      * @return void
      */

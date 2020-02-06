@@ -1,4 +1,4 @@
-## Blog Demo
+# Blog Demo
 
 Este es un blog de demostración desarrollado en Laravel 5.8.
 
@@ -12,7 +12,7 @@ Se requiere:
 >Composer
 >Mysql 
 ```
-Descargar y ejecutar archivo para clonar repositorio 
+Descargar archivo para clonar repositorio 
 
 [install.sh](https://gist.github.com/luciobian/982d344ec1f93f97b040ec7c649b7228/archive/c03b0ff186068c5cdfe04efbb94dab23537844bd.zip)
 
@@ -41,7 +41,7 @@ $ php artisan migrate
 Para agregar datos de prueba, descargar y ejecutar como en el paso de instalación:
 [data.sh](https://gist.github.com/luciobian/dc0c23106687ad260bd3693ed0b0a522/archive/6125f98c97e6c4713dfd5a3b51cb5f88e21c1a6e.zip)
 
-## Ejecutar test
+### Ejecutar test
 ```
 $ cd <project folder>
 $ vendor/bin/phpunit

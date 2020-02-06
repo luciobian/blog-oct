@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('articles.order')
+@include('articles.filter')
 
 @if ($articles->count()>0)
 

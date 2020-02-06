@@ -8,7 +8,7 @@ class Article extends Model
 {
     protected $guarded = [];
 
-    protected $with = ['images'];
+    protected $with = ['images', 'users'];
 
     protected $appends  = ['likes_count'];
 
@@ -34,6 +34,15 @@ class Article extends Model
      */    
     public function images(){
         return $this->hasOne("App\Image", "id");
+    }
+
+    /**
+     * Relación con modelo User
+     *
+     * @return void
+     */
+    public function users(){
+        return $this->hasOne("App\User", "id");
     }
 
     /**

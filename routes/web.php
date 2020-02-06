@@ -24,11 +24,10 @@ Route::group(['middleware'=>'auth'], function(){
     Route::put("/articles/{article}", "ArticleController@update");
     Route::delete("/articles/{article}", "ArticleController@destroy")->name('delete');
     Route::post("/articles/{article}/likes", "ArticleController@postLike");
+    Route::post('/article', "ArticleController@store");
 });
 
 Route::post("/search", "ArticleController@search");
 
 
 Route::get('/articles/{article}', 'ArticleController@show');
-
-Route::post('/article', "ArticleController@store");

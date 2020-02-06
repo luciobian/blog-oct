@@ -2,15 +2,6 @@
 
 @section('content')
 
-@if (count($errors))
-<ul class="alert alert-danger l-ns">
-    @foreach ($errors->all() as $error)
-    <li >
-        {{$error}}
-    </li>
-    @endforeach
-</ul>
-@endif
 
 <form method="POST" action="/article" enctype="multipart/form-data">
     {{csrf_field()}}

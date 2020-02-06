@@ -27,6 +27,7 @@
         @include('layouts.nav')
 
         <main class="container mt-3">
+            @include('flash-message')
             @yield('content')
         </main>
     </div>

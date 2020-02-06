@@ -1,20 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    
-@if (count($errors))
-<ul class="alert alert-danger l-ns">
-    @foreach ($errors->all() as $error)
-    <li >
-        {{$error}}
-    </li>
-    @endforeach
-</ul>
-@endif
-
 @if($article->clean)
-<ul class="alert alert-danger l-ns">
+<div class="alert alert-danger">
+	<button type="button" class="close" data-dismiss="alert">×</button>	
     No se realizaron modificaciones.
-</ul>
+
+</div>
 @endif
 
 <form method="POST" action="/articles/{{$article->id}}" enctype="multipart/form-data">

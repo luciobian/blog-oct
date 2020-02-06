@@ -14,7 +14,7 @@
         <img class="img-fluid main-img rounded mx-auto mt-3  d-block"
             src="{{ URL::to('/')."/img/image-not-found.png"}}"
             alt="{{$article->title}}" srcset="">
-            @else
+        @else
             <img class="img-fluid main-img rounded mx-auto mt-3  d-block" 
             src="{{ URL::to('/')."/images/{$article->images->path}"}}"
             alt="{{$article->title}}" 

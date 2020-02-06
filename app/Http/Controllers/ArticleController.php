@@ -78,7 +78,7 @@ class ArticleController extends Controller
         ]);
 
 
-        return redirect("/articles/{$article->id}");
+        return redirect("/articles/{$article->id}")->with('success','Artículo creado correctamente!');;
     }
 
     /**
@@ -143,7 +143,7 @@ class ArticleController extends Controller
 
         $article['clean']=true;
 
-        return view("articles.edit", ["article"=>$article]);
+        return view("articles.edit", ["article"=>$article])->with('success','Actualizado correctamente!');;
 
     }
 
@@ -163,7 +163,7 @@ class ArticleController extends Controller
             
         $article->delete();
 
-        return redirect('home');
+        return redirect('home')->with('success','Artículo eliminado!');;
     }
 
     /**

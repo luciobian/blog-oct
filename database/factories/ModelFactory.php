@@ -3,6 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\User;
 use App\Article;
+use App\Comment;
 use App\Image;
 use App\Role;
 use Illuminate\Support\Str;
@@ -38,6 +39,14 @@ $factory->define(Image::class, function (Faker $faker){
     return [
         "path"=>"",
         "alternative"=>$faker->sentence($nbWords = 4, $variableNbWords = true),
+    ];
+});
+
+$factory->define(Comment::class, function (Faker $faker){
+    return [
+        "body"=>$faker->realText(rand(100,150)),
+        "user_id"=>User::all()->random(),
+        "article_id"=>Article::all()->random(),
     ];
 });
 

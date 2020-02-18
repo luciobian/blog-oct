@@ -8,7 +8,7 @@ class Article extends Model
 {
     protected $guarded = [];
 
-    protected $with = ['images', 'users'];
+    protected $with = ['images', 'users', 'comments.users'];
 
     protected $appends  = ['likes_count'];
 
@@ -53,6 +53,15 @@ class Article extends Model
     public function getRouteKey()
     {
         return 'id';    
+    }
+
+    /**
+     * Relación con la modelo Comment.
+     *
+     * @return void
+     */
+    public function comments(){
+        return $this->hasMany("App\Comment", 'article_id');
     }
 
 

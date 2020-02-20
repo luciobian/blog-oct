@@ -33,7 +33,7 @@ class Article extends Model
      * @return object
      */    
     public function images(){
-        return $this->hasOne("App\Image", "id");
+        return $this->hasOne("App\Image", "id", "image_id");
     }
 
     /**

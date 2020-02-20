@@ -18,7 +18,6 @@
                 @foreach ($comments as $comment)
                 <li class="list-group-item">
                     <div class="d-flex justify-content-between">
-                       {{ $comments->count()}}
                         <h5>{{$comment->users->name}}</h5>
                         <span class="text-muted">{{$comment->created_at->diffForHumans()}}</span>
                     </div>

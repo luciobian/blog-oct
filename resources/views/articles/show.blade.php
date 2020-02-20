@@ -42,4 +42,11 @@ Por {{$article->users->name}},
 <p class="mt-5">
     {{$article->body}}
 </p>
+
+
+<div class="mt-3 mb-3">
+
+    @include('comments.show', ['comments'=>$article->comments])
+
+</div>
 @endsection

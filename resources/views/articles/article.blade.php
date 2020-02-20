@@ -9,18 +9,12 @@
 
 <div class="mt-5 d-block">
     <div class="card mw-50 mx-auto">
-
-        @if (!$article->images )
-        <img class="img-fluid main-img rounded mx-auto mt-3  d-block"
-            src="{{ URL::to('/')."/img/image-not-found.png"}}"
-            alt="{{$article->title}}" srcset="">
-        @else
             <img class="img-fluid main-img rounded mx-auto mt-3  d-block" 
             src="{{ URL::to('/')."/images/{$article->images->path}"}}"
             alt="{{$article->title}}" 
             srcset=""
             onerror="this.src='{{ URL::to('/')."/img/image-not-found.png" }}';">
-        @endif
+       
         <div class="card-body">
             <a href="{{ url('/articles/'.$article->id) }}">
                 <h3 class="card-title">{{$article->title}}</h3>

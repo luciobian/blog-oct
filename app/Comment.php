@@ -13,7 +13,7 @@ class Comment extends Model
      */
     public function users()
     {
-        return $this->belongsTo("App\User", 'id');
+        return $this->belongsTo("App\User", 'user_id');
     }
 
     /**
@@ -23,6 +23,6 @@ class Comment extends Model
      */
     public function articles()
     {
-        return $this->belongsTo("App\Articles", 'id');
+        return $this->belongsTo("App\Articles", 'article_id');
     }
 }
